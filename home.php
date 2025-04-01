@@ -77,18 +77,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['profile_picture'])) {
 </head>
 <body>
     <div class="container">
-        <h1>Welcome, <?php echo htmlspecialchars($user['first_name']) . ' ' . htmlspecialchars($user['last_name']); ?></h1>
-        <h2>Your Registered Details</h2>
-        <p>First Name: <?php echo htmlspecialchars($user['first_name']); ?></p>
-        <p>Last Name: <?php echo htmlspecialchars($user['last_name']); ?></p>
-        <p>Contact Number: <?php echo htmlspecialchars($user['contact_number']); ?></p>
-        <p>Email: <?php echo htmlspecialchars($user['email']); ?></p>
+        <header class="header">
+            <h1>Welcome, <?php echo htmlspecialchars($user['first_name']) . ' ' . htmlspecialchars($user['last_name']); ?></h1>
+        </header>
+        <main>
+            <section class="user-details">
+                <h2>Your Registered Details</h2>
+                <div class="details">
+                    <p><strong>First Name:</strong> <?php echo htmlspecialchars($user['first_name']); ?></p>
+                    <p><strong>Last Name:</strong> <?php echo htmlspecialchars($user['last_name']); ?></p>
+                    <p><strong>Contact Number:</strong> <?php echo htmlspecialchars($user['contact_number']); ?></p>
+                    <p><strong>Email:</strong> <?php echo htmlspecialchars($user['email']); ?></p>
+                </div>
+            </section>
 
-        <h2>Upload Profile Picture</h2>
-        <form action="home.php" method="post" enctype="multipart/form-data">
-            <input type="file" name="profile_picture" required>
-            <input type="submit" value="Upload">
-        </form>
+            <section class="upload-section">
+                <h2>Upload Profile Picture</h2>
+                <form action="home.php" method="post" enctype="multipart/form-data" class="upload-form">
+                    <input type="file" name="profile_picture" required>
+                    <button type="submit" class="btn">Upload</button>
+                </form>
+            </section>
+        </main>
     </div>
 </body>
 </html>

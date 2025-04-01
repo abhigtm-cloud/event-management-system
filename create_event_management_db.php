@@ -1,15 +1,14 @@
 <?php
-$servername = "localhost";
+$servername = "localhost"; // Update with the correct port if changed
 $username = "root";
 $password = "Root@123"; // If you have set a password for the root user, enter it here.
 
 try {
-    // Create connection
+    // Ensure the MySQL server is running
     $conn = new mysqli($servername, $username, $password);
 
-    // Check connection
     if ($conn->connect_error) {
-        throw new Exception("Connection failed: " . $conn->connect_error);
+        throw new Exception("Connection failed: " . $conn->connect_error . ". Ensure the MySQL server is running and accessible on '$servername'.");
     }
 
     // Create database
